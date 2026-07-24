@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.18.1/axios.js"></script>
+    <title>Random user axios</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f0f2f5;
+        font-family: Arial, sans-serif;
+    }
+
+    .tarjeta {
+        width: 450px;
+        background: white;
+        border-radius: 20px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .tarjeta img {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid rgb(0, 0, 0);
+    }
+
+    .tarjeta h1 {
+        margin-top: 20px;
+        font-size: 28px;
+        color: #000000;
+    }
+
+    .tarjeta p {
+        color: #000000;
+        font-size: 16px;
+    }
+
+    .datos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 20px;
+        text-align: left;
+    }
+
+    .datos p {
+        margin: 0;
+        font-size: 14px;
+    }
+
+    @media (max-width: 544px) {
+        .tarjeta {
+            width: 90%;
+            padding: 20px;
+        }
+
+        .tarjeta h1 {
+            font-size: 24px;
+        }
+
+        .tarjeta img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .datos {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .datos p {
+            font-size: 13px;
+            text-align: center;
+        }
+    }
+
+</style>
+<body>
+    <div class="tarjeta">
+        <h1 id="nombre"></h1>
+        <img id="perfil" alt="">
+
+        <div class="datos">
+            <p id="username"></p>
+            <p id="correo"></p>
+            <p id="nacimiento"></p>
+            <p id="edad"></p>
+            <p id="genero"></p>
+            <p id="telefono"></p>
+            <p id="celular"></p>
+            <p id="direccion"></p>
+            <p id="ciudad"></p>
+            <p id="departamento"></p>
+            <p id="pais"></p>
+            <p id="registro"></p>
+            <p id="registro1"></p>
+            <p id="nacionalidad"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async()=>{
+            let res = await axios.get("https://randomuser.me/api/")
+            console.log(res);
+
+            let usuario = res.data.results[0];
+
+            let nombre = document.getElementById("nombre");
+            nombre.textContent = `${usuario.name.first} ${usuario.name.last}`;
+
+            let perfil = document.getElementById("perfil")
+            perfil.src = `${usuario.picture.large}`;
+            perfil.alt = `Foto de perfil de ${usuario.name.first} ${usuario.name.last}`;
+
+            let username = document.getElementById("username");
+            username.textContent = `Nombre de usuario: ${usuario.login.username}`;
+
+            let correo = document.getElementById("correo");
+            correo.textContent = `Correo: ${usuario.email}`;
+
+            let nacimiento = document.getElementById("nacimiento");
+            nacimiento.textContent = `Fecha de nacimiento: ${usuario.dob.date.substring(0,10)}`;
+
+            let edad = document.getElementById("edad");
+            edad.textContent = `Edad: ${usuario.dob.age} años`;
+
+            let genero = document.getElementById("genero");
+            genero.textContent = `Genero: ${usuario.gender}`;
+
+            let telefono = document.getElementById("telefono");
+            telefono.textContent = `Telefono: ${usuario.phone}`;
+
+            let celular = document.getElementById("celular");
+            celular.textContent = `Celular: ${usuario.cell}`;
+
+            let direccion = document.getElementById("direccion");
+            direccion.textContent = `Direccion: ${usuario.location.street.number}, ${usuario.location.street.name}`;
+
+            let ciudad = document.getElementById("ciudad");
+            ciudad.textContent = `Ciudad: ${usuario.location.city}`;
+
+            let departamento = document.getElementById("departamento");
+            departamento.textContent = `Departamento: ${usuario.location.state}`;
+            
+            let pais = document.getElementById("pais");
+            pais.textContent = `Pais: ${usuario.location.country}`;
+
+            let registro = document.getElementById("registro");
+            registro.textContent = `Fecha de registro: ${usuario.registered.date}`;
+
+            let registro1 = document.getElementById("registro1");
+            registro1.textContent = `Años registrado: ${usuario.registered.age}`;
+
+            let nacionalidad = document.getElementById("nacionalidad");
+            nacionalidad.textContent = `Nacionalidad: ${usuario.nat}`;
+        })
+      
+    </script>
+   
+</body>
+</html>
