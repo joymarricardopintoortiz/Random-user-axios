@@ -1,0 +1,310 @@
+body {
+    margin: 0;
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #1a73e8, #00c6ff);
+    display: flex;
+    justify-content: center;
+}
+
+.tarjeta {
+    width: 90%;
+    max-width: 1200px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.2);
+}
+
+.tarjeta h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 35px;
+    color: #222;
+}
+
+.decoracion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.tarjeta img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 5px solid #0d6efd;
+    object-fit: cover;
+}
+
+.lado {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 120px;
+}
+
+.lado span {
+    height: 10px;
+    background: #0d6efd;
+    border-radius: 30px;
+}
+
+.lado span:nth-child(1) {
+    width: 120px;
+}
+
+.lado span:nth-child(2) {
+    width: 80px;
+}
+
+.lado span:nth-child(3) {
+    width: 40px;
+}
+
+.izquierdo span {
+    margin-right: auto;
+}
+
+.derecho span {
+    margin-left: auto;
+}
+
+.separador {
+    border: none;
+    border-top: 3px solid #0d6efd;
+    margin: 30px 0;
+}
+
+.categoria {
+    margin-bottom: 35px;
+}
+
+.categoria h2 {
+    margin-bottom: 18px;
+    color: #0d6efd;
+    border-left: 6px solid #0d6efd;
+    padding-left: 12px;
+    font-size: 22px;
+}
+
+.datos {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+}
+
+.datos p {
+    margin: 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-left: 5px solid #0d6efd;
+    border-radius: 10px;
+    box-shadow: 0 3px 8px rgba(0,0,0,.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.datos p span {
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+.botones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 35px;
+    flex-wrap: wrap;
+}
+
+.botones button {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    background: #0d6efd;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.botones button:hover {
+    background: #084298;
+}
+
+@media (max-width: 961px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .tarjeta {
+        width: 95%;
+        padding: 30px;
+    }
+
+    .tarjeta h1 {
+        font-size: 30px;
+    }
+
+    .datos {
+        grid-template-columns: 1fr;
+    }
+
+    .lado {
+        width: 90px;
+    }
+
+    .lado span:nth-child(1) {
+        width: 90px;
+    }
+
+    .lado span:nth-child(2) {
+        width: 60px;
+    }
+
+    .lado span:nth-child(3) {
+        width: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .tarjeta {
+        width: 100%;
+        padding: 25px;
+    }
+
+    .decoracion {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .lado {
+        flex-direction: row;
+        justify-content: center;
+        width: auto;
+    }
+
+    .izquierdo span,
+    .derecho span {
+        margin: 0;
+    }
+
+    .tarjeta img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .tarjeta h1 {
+        font-size: 28px;
+    }
+
+    .categoria h2 {
+        font-size: 20px;
+    }
+
+    .datos p {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .botones {
+        flex-direction: column;
+    }
+
+    .botones button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 608px) {
+
+    body {
+        padding: 8px;
+    }
+
+    .tarjeta {
+        width: 100%;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .tarjeta h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+
+    .decoracion {
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .tarjeta img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .lado {
+        gap: 8px;
+    }
+
+    .lado span:nth-child(1) {
+        width: 60px;
+    }
+
+    .lado span:nth-child(2) {
+        width: 40px;
+    }
+
+    .lado span:nth-child(3) {
+        width: 20px;
+    }
+
+    .categoria {
+        margin-bottom: 22px;
+    }
+
+    .categoria h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+        padding-left: 8px;
+    }
+
+    .datos {
+        gap: 10px;
+    }
+
+    .datos p {
+        padding: 12px;
+        font-size: 15px;
+        gap: 6px;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    .datos p span {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .botones {
+        margin-top: 20px;
+        gap: 12px;
+    }
+
+    .botones button {
+        width: 100%;
+        padding: 12px;
+        font-size: 14px;
+    }
+}
